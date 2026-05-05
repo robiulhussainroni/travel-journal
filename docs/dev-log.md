@@ -7,3 +7,9 @@ May 02, 2026 :
 - Design v1 Flowchart for the Travel Journal app
 
 - Initialized Files and Folders for the project
+
+May 05, 2026 :
+
+- Designed the inital layout of Travel Journal
+
+Note : I'm struggling to become consistent, but hopefully I'll overcome it. My goal is to finish the v1 before May 08, 2026.
