@@ -1,0 +1,52 @@
+/* ---
+--- Header ---
+--- */
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: sans-serif;
+  font-weight: 400;
+  line-height: 1;
+  overscroll-behavior-y: none;
+}
+
+.header {
+  height: 15vh;
+  padding: 2.4rem;
+  background-color: #030303;
+}
+
+.heading__primary {
+  font-size: 4.4rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  line-height: 1.05;
+  text-align: center;
+  color: #fff;
+}
+
+/* ---
+--- main ---
+--- */
+.main {
+  height: 85vh;
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+}
+
+/* travel list */
+.travel__list {
+  background-color: blue;
+}
+
+/* travel map */
+.travel__map {
+  background-color: yellow;
+}
+
+/* travel details */
+.travel__list {
+  background-color: red;
+}
