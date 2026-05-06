@@ -13,9 +13,58 @@
       <h1 class="heading__primary">Travel <span>Journal</span></h1>
     </header>
     <main class="main">
-      <div class="travel__list"></div>
+      <div class="travel__list">
+        <form action="#" class="form">
+          <input
+            type="text"
+            name="place__name"
+            id="place__name"
+            placeholder="Enter place name"
+          />
+          <input
+            type="text"
+            name="travel__duration"
+            id="travel__duration"
+            placeholder="Enter travel duration : eg: 2 days"
+          />
+
+          <input
+            type="text"
+            name="travel__cost"
+            id="travel__cost"
+            placeholder="Enter travel cost : eg: $100"
+          />
+          <textarea
+            name="short__description"
+            id="short__description"
+            placeholder="short summary.."
+          ></textarea>
+        </form>
+        <div class="travel-item">
+          <h2 class="travel-item__heading">Travel Place</h2>
+          <p class="travel__date">02 may 2025</p>
+        </div>
+      </div>
       <div class="travel__map" id="map"></div>
-      <div class="travel__details"></div>
+      <div class="travel__details">
+        <h2 class="travel__details--heading">Travel Place</h2>
+        <span class="trvel__details--date">02 May 2026</span>
+        <fieldset>
+          <legend>Travel Duration</legend>
+          <p class="travel__details--duration">5 days</p>
+        </fieldset>
+        <fieldset>
+          <legend>Travel Cost</legend>
+          <p class="travel__details--cost">$250</p>
+        </fieldset>
+        <fieldset>
+          <legend>Travel Summary</legend>
+          <p class="travel__details--summary">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere
+            veritatis officia, laboriosam eum unde rem.
+          </p>
+        </fieldset>
+      </div>
     </main>
   </body>
 </html>

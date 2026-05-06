@@ -33,12 +33,53 @@ body {
 .main {
   height: 85vh;
   display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-columns: 35% 50% 15%;
 }
 
 /* travel list */
 .travel__list {
-  background-color: blue;
+  padding: 1.6rem;
+}
+
+.form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.6rem;
+  background-color: violet;
+  padding: 1.6rem;
+}
+
+input,
+textarea {
+  padding: 0.6rem;
+  border-radius: 11px;
+}
+
+#travel__cost {
+  align-self: end;
+}
+
+.travel-item {
+  margin-top: 2.4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: purple;
+  color: #fff;
+  padding: 0.6rem;
+  cursor: pointer;
+}
+
+.travel-item__heading {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.5px;
+}
+
+.travel__date {
+  font-style: italic;
+  font-size: 1.6rem;
 }
 
 /* travel map */
@@ -47,6 +88,35 @@ body {
 }
 
 /* travel details */
-.travel__list {
-  background-color: red;
+.travel__details {
+  padding: 0.6rem;
+}
+
+.travel__details--heading {
+  font-size: 2rem;
+  letter-spacing: -0.5px;
+  line-height: 1.05;
+  font-weight: 700;
+}
+
+.travel__details--date {
+  font-style: italic;
+  font-size: 1.6rem;
+}
+
+fieldset {
+  margin-top: 2rem;
+  padding: 1.6rem;
+}
+
+legend {
+  font-size: 1.8rem;
+  font-weight: 500;
+}
+
+.travel__details--duration,
+.travel__details--cost,
+.travel__details--summary {
+  font-size: 1.8rem;
+  line-height: 1.6;
 }
