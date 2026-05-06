@@ -39,6 +39,25 @@ body {
 /* travel list */
 .travel__list {
   background-color: blue;
+  padding: 1.6rem;
+}
+
+.form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.6rem;
+  background-color: violet;
+  padding: 2.4rem;
+}
+
+input,
+textarea {
+  padding: 1.2rem;
+  border-radius: 11px;
+}
+
+#travel__cost {
+  align-self: end;
 }
 
 /* travel map */
