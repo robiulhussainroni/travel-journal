@@ -1,122 +1,39 @@
-/* ---
---- Header ---
---- */
-html {
-  font-size: 62.5%;
-}
-
-body {
-  font-family: sans-serif;
-  font-weight: 400;
-  line-height: 1;
-  overscroll-behavior-y: none;
-}
-
-.header {
-  height: 15vh;
-  padding: 2.4rem;
-  background-color: #030303;
-}
-
-.heading__primary {
-  font-size: 4.4rem;
-  font-weight: 700;
-  letter-spacing: -0.5px;
-  line-height: 1.05;
-  text-align: center;
-  color: #fff;
-}
-
-/* ---
---- main ---
---- */
-.main {
-  height: 85vh;
+.travel {
   display: grid;
-  grid-template-columns: 35% 50% 15%;
+  grid-template-columns: 1fr 2fr;
 }
 
-/* travel list */
-.travel__list {
+.travel__details {
+  /* temporary */
+  border: 2px solid red;
   padding: 1.6rem;
 }
 
-.form {
+.travel__form {
+  max-width: 40rem;
   display: grid;
   grid-template-columns: 1fr 1fr;
+  column-gap: 1rem;
+  row-gap: 1rem;
+
+  /* temporary */
+  border: 1px solid #777;
+  padding: 1.2rem;
+  margin-block: 2rem;
+}
+
+.travel__form .flex {
   gap: 0.6rem;
-  background-color: violet;
-  padding: 1.6rem;
 }
 
-input,
-textarea {
-  padding: 0.6rem;
-  border-radius: 11px;
-}
-
-#travel__cost {
-  align-self: end;
-}
-
-.travel-item {
-  margin-top: 2.4rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: purple;
-  color: #fff;
-  padding: 0.6rem;
-  cursor: pointer;
-}
-
-.travel-item__heading {
-  font-size: 2rem;
-  font-weight: 700;
-  line-height: 1.05;
-  letter-spacing: -0.5px;
-}
-
-.travel__date {
-  font-style: italic;
+.travel__form label {
   font-size: 1.6rem;
-}
-
-/* travel map */
-.travel__map {
-  background-color: yellow;
-}
-
-/* travel details */
-.travel__details {
-  padding: 0.6rem;
-}
-
-.travel__details--heading {
-  font-size: 2rem;
-  letter-spacing: -0.5px;
-  line-height: 1.05;
-  font-weight: 700;
-}
-
-.travel__details--date {
-  font-style: italic;
-  font-size: 1.6rem;
-}
-
-fieldset {
-  margin-top: 2rem;
-  padding: 1.6rem;
-}
-
-legend {
-  font-size: 1.8rem;
   font-weight: 500;
 }
 
-.travel__details--duration,
-.travel__details--cost,
-.travel__details--summary {
-  font-size: 1.8rem;
-  line-height: 1.6;
+.travel__form input,
+.travel__form textarea {
+  width: 10rem;
+  padding: 0.6rem;
+  outline: none;
 }
