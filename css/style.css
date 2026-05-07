@@ -79,3 +79,81 @@
   font-style: italic;
   font-size: 1.6rem;
 }
+
+.travel__details--modal {
+  position: absolute;
+  top: 5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: 50rem;
+  border-radius: 11px;
+  background-color: #eee;
+  padding: 2.4rem;
+  box-shadow: 0 4.8rem 9.6rem rgba(0, 0, 0, 0.07);
+  z-index: 1;
+}
+
+.travel__modal--heading {
+  font-size: 3rem;
+  text-align: center;
+  line-height: 1.05;
+  letter-spacing: -0.5px;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+}
+
+.travel__details--modal .flex {
+  justify-content: space-between;
+  margin-bottom: 2.4rem;
+}
+
+.travel__modal--date,
+.travel__modal--costs,
+.travel__modal--duration {
+  display: inline-block;
+  font-weight: 500;
+  font-style: italic;
+  font-size: 1.6rem;
+  padding: 0.6rem 1.2rem;
+  border-radius: 100px;
+}
+
+.travel__modal--date {
+  background-color: rgba(0, 255, 255, 0.3);
+}
+
+.travel__modal--duration {
+  background-color: rgba(255, 255, 0, 0.3);
+}
+
+.travel__modal--costs {
+  background-color: rgba(255, 0, 0, 0.3);
+}
+
+.travel__modal--summary {
+  padding: 2.4rem;
+}
+
+.travel__modal--summary legend {
+  font-size: 2rem;
+  padding: 0.6rem 1.2rem;
+  font-weight: 500;
+  background-color: rgba(218, 112, 214, 0.3);
+  border-radius: 100px;
+}
+
+.summary {
+  font-size: 2rem;
+  line-height: 1.6;
+}
+
+.overlay {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: #000;
+  opacity: 50%;
+  filter: blur(100px);
+}
