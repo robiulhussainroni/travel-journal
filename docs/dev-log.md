@@ -10,9 +10,7 @@ May 02, 2026 :
 
 May 05, 2026 :
 
-- Designed the inital layout of Travel Journal
-
-Note : I'm struggling to become consistent, but hopefully I'll overcome it. My goal is to finish the v1 before May 08, 2026.
+- Designed the initial layout of Travel Journal
 
 May 06, 2026 :
 
@@ -28,3 +26,10 @@ May 07, 2026 :
 - As I mentioned having 3 columns wasn't working that's why I removed travel details column and wrap it inside a modal
 
 Note : My goal with this project isn't practice my design skills but not only for this project almost all my projects I try to design them. Sometimes I feel it's wasting time as my current goal isn't to become a designer rather work on the logic side but again I feel incomplete If I don't do this.
+
+May 08, 2026 :
+
+- Added colors and fonts in the UI and Polished the UI
+- Integrated Leaflet Library and Openstreet map
+
+Note : From now on, It should be more about logic, architecting
