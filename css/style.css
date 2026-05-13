@@ -110,7 +110,8 @@
   color: #332800;
 }
 
-.travel__details--modal {
+.travel__details--modal,
+.location__info {
   position: absolute;
   top: 5rem;
   left: 50%;
@@ -187,4 +188,31 @@
   background-color: #332800;
   opacity: 75%;
   filter: blur(100px);
+}
+
+/* ---- Location Info---- */
+.location__info {
+  top: 6rem;
+  background-color: #332800;
+  color: #fff4cc;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.location__info--text {
+  font-size: 1.6rem;
+  line-height: 1.6;
+  margin-bottom: 2.4rem;
+}
+
+.location__info label {
+  font-size: 1.8rem;
+  font-weight: 500;
+}
+
+.location__info input {
+  margin-top: -0.6rem;
+  padding: 1rem;
+  border-radius: 11px;
 }
