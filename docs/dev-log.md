@@ -33,3 +33,9 @@ May 08, 2026 :
 - Integrated Leaflet Library and Openstreet map
 
 Note : From now on, It should be more about logic, architecting
+
+May 14, 2026 :
+
+- Build a form to collect information if somehow couldn't get the position of the user or if user wants to open the map in different position (This is cool I guess instead of just alerting the user with 'Sorry! could not get your position')
+
+Note : I still haven't think about how to architect (organize) my code yet. I'm just trying to playing out for now.
