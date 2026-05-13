@@ -75,6 +75,26 @@
           </fieldset>
         </div>
         <div class="overlay hidden"></div>
+        <form action="#" class="location__info hidden">
+          <p class="location__info--text">
+            We can't get your position..! Please include latitude and longitude
+            of the position where you want to open the map..
+          </p>
+          <label for="location__info--latitude">Latitude : </label>
+          <input
+            type="text"
+            name="latitude"
+            id="location__info--latitude"
+            placeholder="38.09"
+          />
+          <label for="location__info--longitude">Longitude : </label>
+          <input
+            type="text"
+            name="longitude"
+            id="location__info--longitude"
+            placeholder="-14.05"
+          />
+        </form>
       </section>
       <section id="map"></section>
     </main>
