@@ -56,7 +56,8 @@
 }
 
 .travel__form input,
-.travel__form textarea {
+.travel__form textarea,
+.travel__form--btn {
   width: 10rem;
   padding: 1.2rem;
   border-radius: 11px;
@@ -64,6 +65,12 @@
   box-shadow: 0 1.2rem 2.4rem #ffc600;
   background-color: #fff4cc;
   outline: none;
+}
+
+.travel__form--btn {
+  width: 100%;
+  grid-column: 1 / -1;
+  transition: all 0.3s ease-in-out;
 }
 
 .travel__details--list {
@@ -83,12 +90,14 @@
   transition: all 0.3s ease-in-out;
 }
 
-.travel__log:hover {
-  transform: scale(1.01) translateY(-1.2rem);
+.travel__log:hover,
+.travel__form--btn:hover {
+  transform: scale(1.01) translateY(-0.8rem);
   box-shadow: 0 3.6rem 7.2rem rgba(255, 200, 0, 0.08);
 }
 
-.travel__log:active {
+.travel__log:active,
+.travel__form--btn:active {
   transform: scale(0.9) translateY(0);
   box-shadow: 0 1.6rem 3.2rem rgba(255, 200, 0, 0.06);
 }
