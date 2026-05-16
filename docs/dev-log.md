@@ -44,3 +44,8 @@ May 15, 2026 :
 
 - Finally, I've started thinking about the architecture of the app
 - I've designed a class diagram to handle Map related code
+
+May 16, 2026 :
+
+- Created the class to manage map related code from MapManager class diagram
+- Created the App class and called the MapManager inside it, haven't designed the App class properly yet !
