@@ -7,6 +7,7 @@ const locationInfoLatitude = document.getElementById(
 const locationInfoLongitude = document.getElementById(
   "location__info--longitude",
 );
+const travelForm = document.querySelector(".travel__form");
 
 // MapManager - manage everything related to map
 class MapManager {
@@ -61,6 +62,28 @@ class MapManager {
       .addTo(this.#map)
       .bindPopup("A pretty CSS popup.<br> Easily customizable.")
       .openPopup();
+
+    const travel = new TravelManager();
+    this.#map.on("click", travel.displayForm.bind(travel));
+  }
+}
+
+// TravelManager - manage everything related to travel log
+class TravelManager {
+  #travelLog = [];
+  #mapEvent;
+  constructor() {
+    travelForm.addEventListener("submit", this.#hideForm);
+  }
+
+  displayForm(mapE) {
+    this.#mapEvent = mapE;
+    travelForm.classList.remove("hidden");
+  }
+
+  #hideForm(e) {
+    e.preventDefault();
+    travelForm.classList.add("hidden");
   }
 }
 
