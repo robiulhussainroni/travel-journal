@@ -49,3 +49,8 @@ May 16, 2026 :
 
 - Created the class to manage map related code from MapManager class diagram
 - Created the App class and called the MapManager inside it, haven't designed the App class properly yet !
+
+May 17, 2026 :
+
+- Designed TravelManager class to manage code related Travel log
+- Implemented TravelManager class and linked it with MapManager
