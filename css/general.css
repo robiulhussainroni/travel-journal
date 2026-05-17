@@ -31,7 +31,6 @@ li {
 }
 
 .hidden {
-  visibility: hidden;
-  opacity: 0;
-  transition: all 0.3s ease-in-out;
+  display: none !important;
 }
+
