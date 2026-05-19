@@ -54,3 +54,9 @@ May 17, 2026 :
 
 - Designed TravelManager class to manage code related Travel log
 - Implemented TravelManager class and linked it with MapManager
+
+May 19, 2026 :
+
+- Refactored #loadMap() method, created separate method in that process
+- Collect travel form input values, render them on the travel list, removing the travel form input value
+- Try to work with travel details modal but it ended up being complex to implement
