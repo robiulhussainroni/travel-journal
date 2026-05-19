@@ -24,34 +24,28 @@ class MapManager {
 
   #getPosition() {
     navigator.geolocation.getCurrentPosition(
-      this.#loadMap.bind(this),
+      this.#getPositionGeoLocation.bind(this),
       function () {
         locationInfo.classList.remove("hidden");
       },
     );
   }
 
+  #getPositionGeoLocation(position) {
+    const { latitude, longitude } = position.coords;
+    this.#loadMap(latitude, longitude);
+  }
+
   #getPositionDirectly(e) {
     e.preventDefault();
+    locationInfo.classList.add("hidden");
     const latitude = +locationInfoLatitude.value;
     const longitude = +locationInfoLongitude.value;
 
-    this.#map = L.map("map").setView([latitude, longitude], this.#mapZoom);
-
-    L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
-      attribution:
-        '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-    }).addTo(this.#map);
-
-    L.marker([latitude, longitude])
-      .addTo(this.#map)
-      .bindPopup("A pretty CSS popup.<br> Easily customizable.")
-      .openPopup();
-    locationInfo.classList.add("hidden");
+    this.#loadMap(latitude, longitude);
   }
 
-  #loadMap(position) {
-    const { latitude, longitude } = position.coords;
+  #loadMap(latitude, longitude) {
     this.#map = L.map("map").setView([latitude, longitude], this.#mapZoom);
     L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
       attribution:
