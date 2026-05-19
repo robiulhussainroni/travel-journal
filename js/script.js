@@ -8,6 +8,11 @@ const locationInfoLongitude = document.getElementById(
   "location__info--longitude",
 );
 const travelForm = document.querySelector(".travel__form");
+const travelDuration = document.getElementById("duration");
+const travelPlace = document.getElementById("place");
+const travelCost = document.getElementById("cost");
+const travelSummary = document.getElementById("summary");
+const travelList = document.querySelector(".travel__details--list");
 
 // MapManager - manage everything related to map
 class MapManager {
@@ -67,7 +72,7 @@ class TravelManager {
   #travelLog = [];
   #mapEvent;
   constructor() {
-    travelForm.addEventListener("submit", this.#hideForm);
+    travelForm.addEventListener("submit", this.#renderTravel.bind(this));
   }
 
   displayForm(mapE) {
@@ -75,8 +80,36 @@ class TravelManager {
     travelForm.classList.remove("hidden");
   }
 
-  #hideForm(e) {
+  #renderTravel(e) {
     e.preventDefault();
+
+    const currentDate = new Date();
+    const day = currentDate.getDate();
+    const month = currentDate.getMonth() + 1;
+    const year = currentDate.getFullYear();
+
+    // Rendering on list
+    const html = `
+       <li class="travel__log flex">
+            <h2 class="travel__log--heading">${travelPlace.value}</h2>
+            <span class="travel__log--date">${day},${month},${year}</span>
+          </li>
+    `;
+
+    travelList.insertAdjacentHTML("afterbegin", html);
+
+    // Removing the input value
+    travelDuration.value =
+      travelPlace.value =
+      travelCost.value =
+      travelSummary.value =
+        "";
+
+    // Hiding the form
+    this.#hideForm();
+  }
+
+  #hideForm() {
     travelForm.classList.add("hidden");
   }
 }
