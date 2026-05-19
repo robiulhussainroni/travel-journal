@@ -40,7 +40,13 @@
         >
           <div class="flex">
             <label for="place">Place</label>
-            <input type="text" name="place" id="place" placeholder="London" />
+            <input
+              type="text"
+              name="place"
+              id="place"
+              placeholder="London"
+              required
+            />
           </div>
           <div class="flex">
             <label for="duration">Duration</label>
@@ -49,15 +55,27 @@
               name="duration"
               id="duration"
               placeholder="7 days"
+              required
             />
           </div>
           <div class="flex">
             <label for="cost">Cost</label>
-            <input type="text" name="cost" id="place" placeholder="Cost" />
+            <input
+              type="text"
+              name="cost"
+              id="place"
+              placeholder="$32.35"
+              required
+            />
           </div>
           <div class="flex">
             <label for="summary">Summary</label>
-            <textarea name="summary" id="summary" placeholder="..."></textarea>
+            <textarea
+              name="summary"
+              id="summary"
+              placeholder="..."
+              required
+            ></textarea>
           </div>
           <button type="submit" class="travel__form--btn">Ok</button>
         </form>
