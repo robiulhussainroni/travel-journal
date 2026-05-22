@@ -130,7 +130,10 @@
   background-color: #fff4cc;
   padding: 2.4rem;
   box-shadow: 0 4.8rem 9.6rem rgba(255, 200, 0, 0.07);
-  z-index: 1;
+}
+
+.travel__details--modal {
+  z-index: 999;
 }
 
 .travel__modal--heading {

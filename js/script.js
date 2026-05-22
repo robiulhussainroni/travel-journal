@@ -13,6 +13,7 @@ const travelPlace = document.getElementById("place");
 const travelCost = document.getElementById("cost");
 const travelSummary = document.getElementById("summary");
 const travelList = document.querySelector(".travel__details--list");
+const travelModal = document.querySelector(".travel__details--modal");
 
 // MapManager - manage everything related to map
 class MapManager {
@@ -73,6 +74,7 @@ class TravelManager {
   #mapEvent;
   constructor() {
     travelForm.addEventListener("submit", this.#renderTravel.bind(this));
+    travelList.addEventListener("click", this.#travelDetails.bind(this));
   }
 
   displayForm(mapE) {
@@ -87,16 +89,28 @@ class TravelManager {
     const day = currentDate.getDate();
     const month = currentDate.getMonth() + 1;
     const year = currentDate.getFullYear();
+    const id = Date.now();
 
     // Rendering on list
     const html = `
-       <li class="travel__log flex">
+       <li class= travel__log flex data-id = ${id}>
             <h2 class="travel__log--heading">${travelPlace.value}</h2>
             <span class="travel__log--date">${day},${month},${year}</span>
           </li>
     `;
 
     travelList.insertAdjacentHTML("afterbegin", html);
+
+    this.#travelLog.push({
+      travelDuration: travelDuration.value,
+      travelPlace: travelPlace.value,
+      travelCost: travelCost.value,
+      travelSummary: travelSummary.value,
+      travelDate: day,
+      travelMonth: month,
+      travelYear: year,
+      listId: id,
+    });
 
     // Removing the input value
     travelDuration.value =
@@ -111,6 +125,38 @@ class TravelManager {
 
   #hideForm() {
     travelForm.classList.add("hidden");
+  }
+
+  #travelDetails(e) {
+    const el = e.target.closest(".travel__log");
+    const travelEl = this.#travelLog.find((travel) => {
+      const travelListID = travel.listId + "";
+      return travelListID === el.dataset.id;
+    });
+
+    const html = `
+          <h2 class="travel__modal--heading">${travelEl.travelPlace}</h2>
+          <div class="flex">
+            <span class="travel__modal--date">${travelEl.travelDate},${travelEl.travelMonth},${travelEl.travelYear}</span>
+            <span class="travel__modal--duration">${travelEl.travelDuration}</span>
+            <span class="travel__modal--costs">${travelEl.travelCost}</span>
+          </div>
+          <fieldset class="travel__modal--summary">
+            <legend>Summary</legend>
+            <p class="summary">
+              ${travelEl.travelSummary}
+            </p>
+          </fieldset>
+    `;
+    el.classList.add("hidden");
+    travelModal.classList.remove("hidden");
+    travelModal.insertAdjacentHTML("afterbegin", html);
+
+    setTimeout(function () {
+      travelModal.innerHTML = "";
+      travelModal.classList.add("hidden");
+      el.classList.remove("hidden");
+    }, 5000);
   }
 }
 
