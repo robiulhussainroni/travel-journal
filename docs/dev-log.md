@@ -60,3 +60,7 @@ May 19, 2026 :
 - Refactored #loadMap() method, created separate method in that process
 - Collect travel form input values, render them on the travel list, removing the travel form input value
 - Try to work with travel details modal but it ended up being complex to implement
+
+May 23, 2026 :
+
+- Displayed Travel Details when user clicks on Travel List
