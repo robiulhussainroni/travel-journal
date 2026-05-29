@@ -18,7 +18,9 @@ const travelModal = document.querySelector(".travel__details--modal");
 // MapManager - manage everything related to map
 class MapManager {
   #map;
+  #mapEvent;
   #mapZoom = 13;
+  #travel; // For TravelManager instance
 
   constructor() {
     this.#getPosition();
@@ -58,29 +60,35 @@ class MapManager {
         '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
     }).addTo(this.#map);
 
-    L.marker([latitude, longitude])
-      .addTo(this.#map)
-      .bindPopup("A pretty CSS popup.<br> Easily customizable.")
-      .openPopup();
+    this.#map.on("click", this.#mapInfo.bind(this));
+  }
 
-    const travel = new TravelManager();
-    this.#map.on("click", travel.displayForm.bind(travel));
+  #mapInfo(mapE) {
+    this.#mapEvent = mapE; // To reuse it outside this method
+    this.#renderMapMarker();
+
+    // Linking to TravelManager class in order to display form
+    this.#travel = new TravelManager();
+    this.#travel.displayForm();
+  }
+
+  #renderMapMarker() {
+    const { lat, lng } = this.#mapEvent.latlng;
+    L.marker([lat, lng]).addTo(this.#map).bindPopup("Travel").openPopup();
   }
 }
 
 // TravelManager - manage everything related to travel log
 class TravelManager {
   #travelLog = [];
-  #mapEvent;
   constructor() {
     travelForm.addEventListener("submit", this.#renderTravel.bind(this));
     travelList.addEventListener("click", this.#travelDetails.bind(this));
   }
 
-  displayForm(mapE) {
-    this.#mapEvent = mapE;
+  displayForm() {
     travelForm.classList.remove("hidden");
-  }
+  } // Need to expose it to public API as this method is needed even outside of this class
 
   #renderTravel(e) {
     e.preventDefault();
