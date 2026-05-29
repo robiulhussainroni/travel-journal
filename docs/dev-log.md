@@ -64,3 +64,9 @@ May 19, 2026 :
 May 23, 2026 :
 
 - Displayed Travel Details when user clicks on Travel List
+
+May 29, 2026 :
+
+- Rendered map marker
+- Designed the map marker
+- Tried to render the map marker after form submission but things didn't go as expected
