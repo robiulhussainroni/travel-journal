@@ -228,3 +228,19 @@
   padding: 1rem;
   border-radius: 11px;
 }
+
+/* Leaflet related desing */
+.leaflet-popup-content-wrapper,
+.leaflet-popup-tip {
+  background-color: #332800;
+}
+
+.leaflet-popup-content {
+  color: #fff4cc;
+  font-size: 1.4rem;
+  font-style: italic;
+}
+
+.leaflet-popup-close-button span {
+  color: #fff4cc;
+}

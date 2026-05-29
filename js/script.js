@@ -74,7 +74,15 @@ class MapManager {
 
   #renderMapMarker() {
     const { lat, lng } = this.#mapEvent.latlng;
-    L.marker([lat, lng]).addTo(this.#map).bindPopup("Travel").openPopup();
+    L.marker([lat, lng])
+      .addTo(this.#map)
+      .bindPopup(`Travel`, {
+        maxWidth: 400,
+        minWidth: 100,
+        autoClose: false,
+        closeOnClick: false,
+      })
+      .openPopup();
   }
 }
 
