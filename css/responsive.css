@@ -1,0 +1,51 @@
+/* 1056px */
+@media (max-width: 66em) {
+  html {
+    font-size: 56.25%;
+  }
+
+  .travel__form {
+    max-width: 35rem;
+    grid-template-columns: 1fr;
+    row-gap: 1.2rem;
+  }
+
+  .travel__form input,
+  .travel__form textarea {
+    width: 20rem;
+    padding: 1.4rem;
+  }
+
+  .travel__form .flex {
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+}
+
+/* 500px */
+@media (max-width: 31.25em) {
+  html {
+    font-size: 62.5%;
+  }
+
+  .travel {
+    grid-template-columns: 1fr;
+    grid-template-rows: 25rem 1fr;
+  }
+
+  .travel__details {
+    min-width: 34rem;
+    overflow-y: scroll;
+    margin: 0 auto;
+  }
+
+  .location__info {
+    min-width: 34rem;
+  }
+}
+
+/* Todo List */
+/* 
+ 1. Make Travel Details Modal Responsive
+ 2. If travel details section scrollbar is lower then move it to the map when clicked on the map
+*/

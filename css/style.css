@@ -204,6 +204,7 @@
 
 /* ---- Location Info---- */
 .location__info {
+  min-width: 50rem;
   top: 6rem;
   background-color: #332800;
   color: #fff4cc;
