@@ -70,3 +70,8 @@ May 29, 2026 :
 - Rendered map marker
 - Designed the map marker
 - Tried to render the map marker after form submission but things didn't go as expected
+
+June 01, 2026 :
+
+- Discover a crucial bug : after the first travel log, everytime when we create a new travel log an extra travel log creates out of nowhere
+- Started working on making the application responsive
