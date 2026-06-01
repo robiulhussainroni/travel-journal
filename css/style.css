@@ -122,10 +122,10 @@
 .travel__details--modal,
 .location__info {
   position: absolute;
-  top: 5rem;
+  top: 12rem;
   left: 50%;
   transform: translateX(-50%);
-  max-width: 50rem;
+  min-width: 50rem;
   border-radius: 11px;
   background-color: #fff4cc;
   padding: 2.4rem;
@@ -133,7 +133,9 @@
 }
 
 .travel__details--modal {
-  z-index: 999;
+  z-index: 9999;
+  background-color: #332800;
+  color: #fff4cc;
 }
 
 .travel__modal--heading {
@@ -204,8 +206,6 @@
 
 /* ---- Location Info---- */
 .location__info {
-  min-width: 50rem;
-  top: 6rem;
   background-color: #332800;
   color: #fff4cc;
   display: flex;
