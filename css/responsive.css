@@ -35,8 +35,10 @@
 
   .travel__details {
     min-width: 34rem;
-    overflow-y: scroll;
+    overflow-y: auto;
     margin: 0 auto;
+    scrollbar-width: thin;
+    scrollbar-color: #332800 #fff4cc;
   }
 
   .location__info {
@@ -46,6 +48,6 @@
 
 /* Todo List */
 /* 
- 1. Make Travel Details Modal Responsive
+ 1. Make Travel Details Modal Responsive (Done)
  2. If travel details section scrollbar is lower then move it to the map when clicked on the map
 */
