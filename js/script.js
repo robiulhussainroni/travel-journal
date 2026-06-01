@@ -70,6 +70,8 @@ class MapManager {
     // Linking to TravelManager class in order to display form
     this.#travel = new TravelManager();
     this.#travel.displayForm();
+
+    travelForm.scrollIntoView({ behavior: "smooth" }); // Scrolling to the form (for smaller device)
   }
 
   #renderMapMarker() {
@@ -78,7 +80,7 @@ class MapManager {
       .addTo(this.#map)
       .bindPopup(`Travel`, {
         maxWidth: 400,
-        minWidth: 100,
+        minWidth: 50,
         autoClose: false,
         closeOnClick: false,
       })

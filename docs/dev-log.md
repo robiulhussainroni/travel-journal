@@ -74,4 +74,4 @@ May 29, 2026 :
 June 01, 2026 :
 
 - Discover a crucial bug : after the first travel log, everytime when we create a new travel log an extra travel log creates out of nowhere
-- Started working on making the application responsive
+- Make the full application Responsive
