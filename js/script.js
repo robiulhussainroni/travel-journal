@@ -20,7 +20,6 @@ class MapManager {
   #map;
   #mapEvent;
   #mapZoom = 13;
-  #travel; // For TravelManager instance
 
   constructor() {
     this.#getPosition();
@@ -65,16 +64,13 @@ class MapManager {
 
   #mapInfo(mapE) {
     this.#mapEvent = mapE; // To reuse it outside this method
-    this.#renderMapMarker();
 
-    // Linking to TravelManager class in order to display form
-    this.#travel = new TravelManager();
-    this.#travel.displayForm();
+    travelCode.displayForm(); // Instance of TravelManager
 
     travelForm.scrollIntoView({ behavior: "smooth" }); // Scrolling to the form (for smaller device)
   }
 
-  #renderMapMarker() {
+  renderMapMarker() {
     const { lat, lng } = this.#mapEvent.latlng;
     L.marker([lat, lng])
       .addTo(this.#map)
@@ -85,7 +81,7 @@ class MapManager {
         closeOnClick: false,
       })
       .openPopup();
-  }
+  } // Need to expose it to public API as this method is needed even outside of this class
 }
 
 // TravelManager - manage everything related to travel log
@@ -137,6 +133,8 @@ class TravelManager {
       travelSummary.value =
         "";
 
+    mapCode.renderMapMarker(); // Instance of MapManager
+
     // Hiding the form
     this.#hideForm();
   }
@@ -178,11 +176,5 @@ class TravelManager {
   }
 }
 
-class App {
-  #mapCode;
-  constructor() {
-    this.#mapCode = new MapManager();
-  }
-}
-
-const app = new App();
+const mapCode = new MapManager();
+const travelCode = new TravelManager();
