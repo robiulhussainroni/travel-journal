@@ -33,6 +33,10 @@
     grid-template-rows: 25rem 1fr;
   }
 
+  #map {
+    grid-row-start: 1;
+  }
+
   .travel__details {
     min-width: 34rem;
     overflow-y: auto;
