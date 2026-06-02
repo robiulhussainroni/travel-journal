@@ -245,3 +245,14 @@
 .leaflet-popup-close-button span {
   color: #fff4cc;
 }
+
+/* Footer */
+.footer {
+  background-color: #332800;
+  color: #fff4cc;
+  font-size: 1.4rem;
+  padding: 1.6rem;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
