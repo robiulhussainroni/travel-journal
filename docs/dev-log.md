@@ -75,3 +75,9 @@ June 01, 2026 :
 
 - Discover a crucial bug : after the first travel log, everytime when we create a new travel log an extra travel log creates out of nowhere
 - Make the full application Responsive
+
+June 02, 2026 :
+
+- Changed the app architecture in order to solve two massive bugs
+- Included footer in the application
+- Inverse the grid position of map container and travel details container
