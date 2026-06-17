@@ -20,6 +20,7 @@ class MapManager {
   #map;
   #mapEvent;
   #mapZoom = 13;
+  locationDetails = [];
 
   constructor() {
     this.#getPosition();
@@ -72,6 +73,7 @@ class MapManager {
 
   renderMapMarker() {
     const { lat, lng } = this.#mapEvent.latlng;
+    this.locationDetails.push({ latitude: lat, longitude: lng });
     L.marker([lat, lng])
       .addTo(this.#map)
       .bindPopup(`Travel`, {
@@ -135,6 +137,13 @@ class TravelManager {
 
     mapCode.renderMapMarker(); // Instance of MapManager
 
+    // Saving mapEvent to localStorage
+    localStorageCode.setLocalStorage(
+      "travelJournal-locationDetails",
+      JSON.stringify(mapCode.locationDetails),
+    );
+    console.log(localStorage);
+
     // Hiding the form
     this.#hideForm();
   }
@@ -176,5 +185,24 @@ class TravelManager {
   }
 }
 
+// LocalStorageManager - to manage every code related local storage
+class LocalStorageManager {
+  constructor() {
+    // this.setLocalStorage();
+    this.getLocalStorage();
+  }
+  setLocalStorage(key, value) {
+    localStorage.setItem(key, value);
+  }
+
+  getLocalStorage() {
+    const localStorageMapEvent = JSON.parse(
+      localStorage.getItem("travelJournal-locationDetails"),
+    );
+    console.log(localStorageMapEvent);
+  }
+}
+
 const mapCode = new MapManager();
 const travelCode = new TravelManager();
+const localStorageCode = new LocalStorageManager();
