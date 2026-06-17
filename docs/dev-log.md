@@ -81,3 +81,8 @@ June 02, 2026 :
 - Changed the app architecture in order to solve two massive bugs
 - Included footer in the application
 - Inverse the grid position of map container and travel details container
+
+June 17, 2026 :
+
+- Back after long time, couldn't code because of family health emergency
+- Save Travel Locations latitude and longitude also travel log details on local storage
