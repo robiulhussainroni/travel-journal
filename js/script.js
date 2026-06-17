@@ -88,7 +88,7 @@ class MapManager {
 
 // TravelManager - manage everything related to travel log
 class TravelManager {
-  #travelLog = [];
+  travelLog = [];
   constructor() {
     travelForm.addEventListener("submit", this.#renderTravel.bind(this));
     travelList.addEventListener("click", this.#travelDetails.bind(this));
@@ -117,7 +117,7 @@ class TravelManager {
 
     travelList.insertAdjacentHTML("afterbegin", html);
 
-    this.#travelLog.push({
+    this.travelLog.push({
       travelDuration: travelDuration.value,
       travelPlace: travelPlace.value,
       travelCost: travelCost.value,
@@ -128,6 +128,14 @@ class TravelManager {
       listId: id,
     });
 
+    console.log(this.travelLog);
+
+    // Saving travel details to local storage
+    localStorageCode.setLocalStorage(
+      "travelJournal-travelLog",
+      JSON.stringify(this.travelLog),
+    );
+
     // Removing the input value
     travelDuration.value =
       travelPlace.value =
@@ -137,7 +145,7 @@ class TravelManager {
 
     mapCode.renderMapMarker(); // Instance of MapManager
 
-    // Saving mapEvent to localStorage
+    // Saving locations lat and lng to localStorage
     localStorageCode.setLocalStorage(
       "travelJournal-locationDetails",
       JSON.stringify(mapCode.locationDetails),
@@ -154,7 +162,7 @@ class TravelManager {
 
   #travelDetails(e) {
     const el = e.target.closest(".travel__log");
-    const travelEl = this.#travelLog.find((travel) => {
+    const travelEl = this.travelLog.find((travel) => {
       const travelListID = travel.listId + "";
       return travelListID === el.dataset.id;
     });
@@ -196,10 +204,14 @@ class LocalStorageManager {
   }
 
   getLocalStorage() {
-    const localStorageMapEvent = JSON.parse(
+    const localStorageLocation = JSON.parse(
       localStorage.getItem("travelJournal-locationDetails"),
     );
-    console.log(localStorageMapEvent);
+    const localStorageTravelLog = JSON.parse(
+      localStorage.getItem("travelJournal-travelLog"),
+    );
+    console.log(localStorageLocation);
+    console.log(localStorageTravelLog);
   }
 }
 
