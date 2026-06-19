@@ -86,3 +86,8 @@ June 17, 2026 :
 
 - Back after long time, couldn't code because of family health emergency
 - Save Travel Locations latitude and longitude also travel log details on local storage
+
+June 19, 2026 : 
+
+- Implemented Local Storage
+- Finished V1 of Travel Journal APP

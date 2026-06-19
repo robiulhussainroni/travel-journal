@@ -42,6 +42,7 @@ class MapManager {
   #getPositionGeoLocation(position) {
     const { latitude, longitude } = position.coords;
     this.#loadMap(latitude, longitude);
+    localStorageCode.getLocalStorage();
   }
 
   #getPositionDirectly(e) {
@@ -51,6 +52,7 @@ class MapManager {
     const longitude = +locationInfoLongitude.value;
 
     this.#loadMap(latitude, longitude);
+    localStorageCode.getLocalStorage();
   }
 
   #loadMap(latitude, longitude) {
@@ -71,19 +73,28 @@ class MapManager {
     travelForm.scrollIntoView({ behavior: "smooth" }); // Scrolling to the form (for smaller device)
   }
 
-  renderMapMarker() {
+  getLatLng() {
     const { lat, lng } = this.#mapEvent.latlng;
     this.locationDetails.push({ latitude: lat, longitude: lng });
-    L.marker([lat, lng])
-      .addTo(this.#map)
-      .bindPopup(`Travel`, {
-        maxWidth: 400,
-        minWidth: 50,
-        autoClose: false,
-        closeOnClick: false,
-      })
-      .openPopup();
+
+    this.renderMapMarker();
   } // Need to expose it to public API as this method is needed even outside of this class
+
+  renderMapMarker() {
+    this.locationDetails.forEach((loc) => {
+      console.log(loc.latitude, loc.longitude);
+      console.log(this);
+      L.marker([loc.latitude, loc.longitude])
+        .addTo(this.#map)
+        .bindPopup(`Travel`, {
+          maxWidth: 400,
+          minWidth: 50,
+          autoClose: false,
+          closeOnClick: false,
+        })
+        .openPopup();
+    });
+  }
 }
 
 // TravelManager - manage everything related to travel log
@@ -91,7 +102,7 @@ class TravelManager {
   travelLog = [];
   constructor() {
     travelForm.addEventListener("submit", this.#renderTravel.bind(this));
-    travelList.addEventListener("click", this.#travelDetails.bind(this));
+    travelList.addEventListener("click", this.travelDetails.bind(this));
   }
 
   displayForm() {
@@ -107,16 +118,6 @@ class TravelManager {
     const year = currentDate.getFullYear();
     const id = Date.now();
 
-    // Rendering on list
-    const html = `
-       <li class= travel__log flex data-id = ${id}>
-            <h2 class="travel__log--heading">${travelPlace.value}</h2>
-            <span class="travel__log--date">${day},${month},${year}</span>
-          </li>
-    `;
-
-    travelList.insertAdjacentHTML("afterbegin", html);
-
     this.travelLog.push({
       travelDuration: travelDuration.value,
       travelPlace: travelPlace.value,
@@ -128,7 +129,8 @@ class TravelManager {
       listId: id,
     });
 
-    console.log(this.travelLog);
+    // Rendering on List
+    this.renderList();
 
     // Saving travel details to local storage
     localStorageCode.setLocalStorage(
@@ -143,25 +145,39 @@ class TravelManager {
       travelSummary.value =
         "";
 
-    mapCode.renderMapMarker(); // Instance of MapManager
+    mapCode.getLatLng(); // Instance of MapManager // To render map marker
 
     // Saving locations lat and lng to localStorage
     localStorageCode.setLocalStorage(
       "travelJournal-locationDetails",
       JSON.stringify(mapCode.locationDetails),
     );
-    console.log(localStorage);
 
     // Hiding the form
     this.#hideForm();
+  }
+
+  renderList() {
+    this.travelLog.forEach((travel) => {
+      // Rendering on list
+      const html = `
+       <li class= travel__log flex data-id = ${travel.listId}>
+            <h2 class="travel__log--heading">${travel.travelPlace}</h2>
+            <span class="travel__log--date">${travel.travelDate},${travel.travelMonth},${travel.travelYear}</span>
+          </li>
+    `;
+
+      travelList.insertAdjacentHTML("afterbegin", html);
+    });
   }
 
   #hideForm() {
     travelForm.classList.add("hidden");
   }
 
-  #travelDetails(e) {
+  travelDetails(e) {
     const el = e.target.closest(".travel__log");
+    if (!el) return;
     const travelEl = this.travelLog.find((travel) => {
       const travelListID = travel.listId + "";
       return travelListID === el.dataset.id;
@@ -195,10 +211,10 @@ class TravelManager {
 
 // LocalStorageManager - to manage every code related local storage
 class LocalStorageManager {
-  constructor() {
-    // this.setLocalStorage();
-    this.getLocalStorage();
-  }
+  // constructor() {
+  //   // this.setLocalStorage();
+  //   // this.getLocalStorage();
+  // }
   setLocalStorage(key, value) {
     localStorage.setItem(key, value);
   }
@@ -210,8 +226,12 @@ class LocalStorageManager {
     const localStorageTravelLog = JSON.parse(
       localStorage.getItem("travelJournal-travelLog"),
     );
-    console.log(localStorageLocation);
-    console.log(localStorageTravelLog);
+
+    mapCode.locationDetails = localStorageLocation;
+    travelCode.travelLog = localStorageTravelLog;
+
+    mapCode.renderMapMarker();
+    travelCode.renderList();
   }
 }
 
